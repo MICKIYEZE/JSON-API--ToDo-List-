@@ -55,6 +55,12 @@ func handleList(w http.ResponseWriter, r *http.Request) {
 	writeJSON(w, http.StatusOK, todos)
 }
 
+// Flips the completed stat like a light switch
+func (t *Todo) ToggleCompleted() {
+    t.Completed = !t.Completed
+}
+
+
 // Adds a task to youtr todo using /add with method POST
 func handleAdd(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodPost {
